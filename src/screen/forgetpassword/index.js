@@ -8,10 +8,9 @@ const ForgotPasswordScreen = () => {
   const [Otp, setOtp] = useState();
 
   const [otpStatus, setOtpStatus] = useState(false);
-  const [otpValidTime,setOtpValidTime] = useState()
-  const [getTime, setGetTime] = useState(10)
+  const [otpValidTime, setOtpValidTime] = useState();
+  const [getTime, setGetTime] = useState(10);
   const navigate = useNavigate();
-
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -20,13 +19,13 @@ const ForgotPasswordScreen = () => {
     setOtp(event.target.value);
   };
 
-  const timer = ()=>{
+  const timer = () => {
     setInterval(() => {
-    if(getTime>0){
-    setGetTime(getTime-1)
-    }
+      if (getTime > 0) {
+        setGetTime(getTime - 1);
+      }
     }, 10000);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,9 +37,9 @@ const ForgotPasswordScreen = () => {
       .then((res) => {
         setOtpStatus(true);
         console.log(res);
-        alert(`This Is otp please do screenshot${res.data.verficationOtp}`)
-         setOtpValidTime(res.data.validFor)
-         timer()
+        alert(`This Is otp please do screenshot${res.data.verficationOtp}`);
+        setOtpValidTime(res.data.validFor);
+        timer();
       })
       .catch((e) => {
         setOtpStatus(false);
@@ -54,23 +53,22 @@ const ForgotPasswordScreen = () => {
     axios
       .post("http://localhost:5000/verifyOTP", {
         CG_Email_Address: CG_Email_Address,
-        otp: Otp
+        otp: Otp,
       })
       .then((res) => {
-       alert('Otp Is valid Please change password now')
-       navigate("/SetNewPassword");
+        alert("Otp Is valid Please change password now");
+        navigate("/SetNewPassword");
       })
       .catch((e) => {
         alert(e?.message);
       });
   };
 
-
   return (
     <div className="forgot-password-container">
       <h2>Forgot Password</h2>
       <p>Please enter your registered email address to reset your password.</p>
-      <form onSubmit={ otpStatus ? handleotp : handleSubmit}>
+      <form onSubmit={otpStatus ? handleotp : handleSubmit}>
         <div className="form-group">
           <label>Email Address</label>
           <input
@@ -82,7 +80,7 @@ const ForgotPasswordScreen = () => {
           />
           {otpStatus && (
             <React.Fragment>
-            <label>{`Otp Valid for : ${getTime} `}</label>
+              <label>{`Otp Valid for : ${getTime} `}</label>
               <label>Enter Otp </label>
               <input
                 type="otp"
