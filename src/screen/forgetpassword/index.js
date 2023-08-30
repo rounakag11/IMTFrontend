@@ -97,7 +97,7 @@ const ForgotPasswordScreen = () => {
         {otpStatus ? (
           <button type="submit">Reset Password</button>
         ) : (
-          <button type="submit">Genrate Otp</button>
+          <button type="submit">Generate Otp</button>
         )}
       </form>
     </div>
