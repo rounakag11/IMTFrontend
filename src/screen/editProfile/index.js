@@ -1,51 +1,74 @@
 import React, { useState } from 'react';
-import "./editProfile.css"; // Import your CSS file for styli
-import axios from 'axios';
+import './editProfile.css'; // Make sure to import your CSS file
 
 function EditProfile() {
-  const [CG_ID, setCG_ID] = useState('');
-  const [CG_Email_Address, setCG_Email_Address] = useState('');
-  const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
+  const [formData, setFormData] = useState({
+    CG_ID: '',
+    CG_Email_Address: '',
+    Password: '',
+    Phone_Number: ''
+  });
 
-  const handleEditProfile = async () => {
-    try {
-      const response = await axios.put(`/editProfile/${CG_ID}`, {
-        CG_ID,
-        CG_Email_Address,
-        password,
-        phone
-      });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
-      console.log(response.data.message);
-      // You can perform additional actions after successfull update
-
-    } catch (error) {
-      console.error('Error updating profile:', error.response.data.message);
-      // Handle errors here
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // You can perform any necessary actions with the form data here, such as sending it to a server.
+    console.log(formData);
   };
 
   return (
-    <div>
-      <h2>Edit Profile</h2>
-      <div>
-        <label>CG_ID:</label>
-        <input type="text" value={CG_ID} onChange={(e) => setCG_ID(e.target.value)} />
-      </div>
-      <div>
-        <label>CG_Email_Address:</label>
-        <input type="email" value={CG_Email_Address} onChange={(e) => setCG_Email_Address(e.target.value)} />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <div>
-        <label>Phone Number:</label>
-        <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
-      </div>
-      <button onClick={handleEditProfile}>Update Profile</button>
+    <div className="App">
+      <h1>Edit Profile</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          CG ID:
+          <input
+            type="text"
+            name="CG_ID"
+            value={formData.CG_ID}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          CG Email Address:
+          <input
+            type="email"
+            name="CG_Email_Address"
+            value={formData.CG_Email_Address}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            name="Password"
+            value={formData.Password}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Phone Number:
+          <input
+            type="tel"
+            name="Phone_Number"
+            value={formData.Phone_Number}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }

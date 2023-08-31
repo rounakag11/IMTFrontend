@@ -26,7 +26,7 @@ const LoginScreen = () => {
     .post("http://localhost:5000/login", formData)
     .then((res) => {
       alert("Login Done Successfully");
-    //   navigate("/Login");
+      navigate("/Dashboard");
     })
     .catch((e) => {
        alert(e?.message);

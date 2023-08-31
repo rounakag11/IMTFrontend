@@ -24,9 +24,9 @@ const SetNewPasswordScreen = () => {
     event.preventDefault();
     // Here you can perform actions like updating the password in the backend
     axios
-    .post("http://localhost:5000/verifyOTP",formData)
+    .post("http://localhost:5000/resetPassword",formData)
     .then((res) => {
-     alert('Otp Is change please do login again')
+     alert('password has changed ')
      navigate("/Login");
     })
     .catch((e) => {
