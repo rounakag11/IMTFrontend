@@ -7,8 +7,8 @@ import SetNewPasswordScreen from './screen/resetPassword';
 import Dashboard from './screen/Dashboard';
 import EditProfile from './screen/editProfile';
 import ModifiedInventoryScreen from './screen/modifiedInventory';
-import AddNewInventoryInventoryScreen from './screen/addNewInventory';
-import InventoryList from './screen/InventoryList/inventorylist';
+import AddNewInventoryScreen from './screen/addNewInventory';
+import InventoryListscreen from './screen/InventoryList/InventoryListScreen';
 
 function App() {
   return (
@@ -22,8 +22,8 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/modifiedInventory" element={<ModifiedInventoryScreen />} />
-          <Route path="/addNewInventory" element={<AddNewInventoryInventoryScreen />} />
-          <Route path="/inventoryList" element={<InventoryList />} />
+          <Route path="/addNewInventory" element={<AddNewInventoryScreen />} />
+          <Route path="/InventoryList" element={<InventoryListscreen />} />
         </Routes>
       </BrowserRouter>
       
