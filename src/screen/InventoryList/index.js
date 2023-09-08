@@ -1,5 +1,5 @@
 import React from 'react';
-import './InventoryListScreen.css'; // Make sure to import your CSS file
+import './InventoryListScreen.css'; // here we import our CSS file
 
 function InventoryList() {
   const tableData = [

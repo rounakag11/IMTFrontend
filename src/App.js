@@ -8,7 +8,7 @@ import Dashboard from './screen/Dashboard';
 import EditProfile from './screen/editProfile';
 import ModifiedInventoryScreen from './screen/modifiedInventory';
 import AddNewInventoryScreen from './screen/addNewInventory';
-import InventoryListscreen from './screen/InventoryList/InventoryListScreen';
+import InventoryListscreen from './screen/InventoryList/index';
 
 function App() {
   return (
