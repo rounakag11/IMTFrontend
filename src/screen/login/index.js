@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginScreen.css'; // Import your CSS file for styling
+import './LoginScreen.css'; // Import CSS file her for styling
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './addNewInventoryscreen.css'; // Make sure to import your CSS file
+import './addNewInventoryscreen.css'; // Her we have  import your CSS file
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

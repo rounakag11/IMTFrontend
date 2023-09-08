@@ -1,5 +1,5 @@
 import React from 'react';
-import './Dashboard.css'; // Make sure to import your CSS file
+import './Dashboard.css'; // Here we have  import your CSS file
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {

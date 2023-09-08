@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ForgetPasswordScreen.css"; // Import your CSS file for styling
+import "./ForgetPasswordScreen.css"; // Import our CSS file for styling
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
