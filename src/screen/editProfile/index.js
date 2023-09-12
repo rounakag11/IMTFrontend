@@ -19,7 +19,7 @@ function EditProfile() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // You can perform any necessary actions with the form data here, such as sending it to a server.
+    // Her we can perform any necessary actions with the form data here, such as sending it to a server.
     console.log(formData);
   };
 
